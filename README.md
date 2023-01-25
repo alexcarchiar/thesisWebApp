@@ -6,6 +6,7 @@ Institutions:
 - Tartu University, Estonia
 
 **Student**: Alessandro Chiarelli
+
 **Supervisors**:
 - Prof. Raimundas Matulevicius
 - PhD. Mubashar Iqbal
