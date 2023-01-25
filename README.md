@@ -58,6 +58,8 @@ The technologies used for this WebApp are:
 - Body-parser.js to parse the HTTP requests and responses
 - Dotenv.js to deal with environment variables
 - Nodemon.js to run the app in a test environment
+- Render.com to deploy the app and manage CI/CD
+- This Github repository for CI/CD
 
 ## How to run
 
@@ -73,3 +75,10 @@ You need to create a `.env` file where you have the variable `DB_CONNECTION` set
 URL of your personal database.
 
 The app will run on `localhost:3000`.
+
+## Demo
+
+One demo is available here: https://two-oracle-thesis-web-app.onrender.com
+
+The homepage just shows a `We are on home` line.
+You can check that the API works as defined above.
