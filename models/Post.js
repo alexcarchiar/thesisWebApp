@@ -9,6 +9,10 @@ const PostSchema = mongoose.Schema({
         type: String,
         required: true
     },
+    signature: {
+        type: String,
+        required: true
+    }
 })
 /* Should it be required I can add the date of
  * submission of the post, but it does not add

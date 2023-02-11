@@ -4,8 +4,13 @@ require('dotenv/config')
 const bodyParser = require('body-parser')
 const postsRoute = require('./routes/posts')
 const cors = require('cors')
+const buffer = require('buffer')
 
 const app = express()
+
+const crypto = require('crypto')
+
+public_key = process.env.PUBLIC_KEY
 
 app.use(cors())
 app.use(bodyParser.json())
@@ -13,7 +18,7 @@ app.use(bodyParser.json())
 app.use('/posts', postsRoute)
 
 app.get('/', (req,res) =>
-    res.send("We are on home")
+    res.send("We are on home\nPublic key is: \n"+process.env.PUBLIC_KEY)
 )
 
 //connect to db

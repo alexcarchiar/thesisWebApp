@@ -1,6 +1,13 @@
 const express = require('express')
 const router = express.Router();
 const Post = require('../models/Post')
+const crypto = require('crypto')
+require('dotenv/config')
+
+const private_Key = process.env.PRIVATE_KEY
+const signing_algorithm = 'sha256'
+const format_string = 'hex'
+const public_key = process.env.PUBLIC_KEY
 
 router.get('/', async (req, res) => { //get all posts
     try {
@@ -15,10 +22,23 @@ router.get('/', async (req, res) => { //get all posts
 router.post('/', async (req, res) => { //submit one new posts
     console.log("received")
     console.log(req.body)
+    let signer = crypto.createSign(signing_algorithm)
+    signer.update(req.body.title)
+    signer.update(req.body.description)
+    signer.end()
+    let signature = signer.sign(private_Key,format_string)
+
     const post = new Post({
         title: req.body.title,
-        description: req.body.description
+        description: req.body.description,
+        signature: signature
     })
+
+    let verifier = crypto.createVerify(signing_algorithm)
+    verifier.update(req.body.title)
+    verifier.update(req.body.description)
+    verifier.end()
+    console.log(verifier.verify(public_key, signature, format_string))
 
     try {
         const saved = await post.save()
