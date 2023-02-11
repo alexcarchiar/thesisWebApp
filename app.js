@@ -2,15 +2,10 @@ const express = require('express')
 const mongoose = require('mongoose')
 require('dotenv/config')
 const bodyParser = require('body-parser')
-const postsRoute = require('./routes/posts')
+const postsRoute = require('./Routes/posts')
 const cors = require('cors')
-const buffer = require('buffer')
 
 const app = express()
-
-const crypto = require('crypto')
-
-public_key = process.env.PUBLIC_KEY
 
 app.use(cors())
 app.use(bodyParser.json())
@@ -35,4 +30,5 @@ const PORT = process.env.PORT || 3000
 app.listen(PORT, () => {
     console.log(`server started on port ${PORT}`)
 })
+
 
