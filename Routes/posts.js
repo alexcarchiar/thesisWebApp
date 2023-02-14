@@ -55,9 +55,9 @@ router.post('/', async (req, res) => { //submit one new posts
 router.get('/latest', async (req, res) => {
     console.log("Getting latest")
     try {
-        const latestPost = await Post.find().sort({ _id: -1 }).limit(1)[0]
-        res.json(latestPost)
-        console.log(latestPost)
+        const latestPost = await Post.find().sort({ _id: -1 }).limit(1)
+        res.json(latestPost[0])
+        console.log(latestPost[0])
     } catch(err) {
         console.log(err)
         res.json({message:err})
