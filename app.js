@@ -12,8 +12,26 @@ app.use(bodyParser.json())
 
 app.use('/posts', postsRoute)
 
-app.get('/', (req,res) =>
-    res.send("We are on home\nPublic key is: \n"+process.env.PUBLIC_KEY)
+app.get('/', (req,res) => {
+        response = "<p>We are on the homepage. Go to /posts to see all posts, go to /posts/latest to see the latest one</p>"
+        response += "<p>Public key is:</p>"
+        //26
+        public_key = process.env.PUBLIC_KEY
+        arr = [
+            "-----BEGIN PUBLIC KEY-----",
+            "MFYwEAYHKoZIzj0CAQYFK4EEAA",
+            "oDQgAEq+K8bD8Lidlwc58aHJiS",
+            "ZHTnVIHSdlRq NgdaKMS2hHFpy",
+            "JH0GCGRO9cXx+EtpC++rF9XAW0",
+            "/c3CtXQmlNavxnw== ",
+            "-----END PUBLIC KEY-----"
+        ]
+        for(let i = 0; i<7; i++){
+            response += "<p>" + arr[i] + "</p>"
+            //response += arr[i] + "\n"
+        }
+        res.send(response)
+    }
 )
 
 //connect to db
