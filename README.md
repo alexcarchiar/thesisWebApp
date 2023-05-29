@@ -47,6 +47,10 @@ For example, with the way the app is designed, anyone can submit new articles to
 WebApp database. This is of course problematic, but it is not a concern for our 
 purposes.
 
+Look for additional repos:
+- https://github.com/alexcarchiar/BlockchainOracles
+- https://github.com/alexcarchiar/thesisOutboundOracleWebApp
+
 ## Technologies
 
 The technologies used for this WebApp are:
